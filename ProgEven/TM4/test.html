@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html  lang="en">
+  <head profile="http://www.w3.org/2005/10/profile">
+    <title>Chat Javascript</title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript" src="https://cervelle.pages.lacl.fr/padiflac/padiflac_runtime.js"></script>
+    
+  </head>
+  <body>
+
+    <script>
+        let connection = Padiflac.connect("test");
+
+        var chatDiv = document.createElement("ul");
+        document.body.appendChild(chatDiv);
+
+        var input = document.createElement("input");
+        document.body.appendChild(input);
+        input.onchange = function() {
+          let v = input.value;
+          connection.send(v);
+	      input.value = "";
+        };
+
+        connection.eventloop(function(v) {
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode(v));
+            chatDiv.appendChild(li);
+        });
+    </script>
+  </body>
+</html>
