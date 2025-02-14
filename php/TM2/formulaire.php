@@ -8,15 +8,16 @@ if (isset($_POST["fname"]) && isset($_POST["name"]) && isset($_POST["email"])) {
 $file = "./carnet.sqlite";
 $bd = new PDO("sqlite:$file");
 
-/* $bd -> exec("
-    CREATE TABLE carnet(
-    id INTERGER PRIMARY KEY,
+// Create table if it doesn't exist
+$bd->exec("
+    CREATE TABLE IF NOT EXISTS carnet(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     nom TEXT, 
     prenom TEXT, 
     email TEXT
     )
-"); */
+");
 
-$bd -> exec("INSERT INTO carnet (nom, prenom, email) VALUE ('$nom', '$prenom', '$email')");
-
-echo "<br><a href=\"http://127.0.0.1:8080/index.html\">rentre a la maison</a>";
+// Insert new record
+$bd->exec("INSERT INTO carnet (nom, prenom, email) VALUES ('$nom', '$prenom', '$email')");
+?>
