@@ -77,7 +77,7 @@ int main() {
     printf("ptr_c %p\n",*ptr_c);
     printf("ptr_b %p\n",*ptr_b); prl; */
 
-    unsigned int i;
+    /* unsigned int i;
     printf("Veuillez entrer un entier : ");
     scanf("%u", &i);
     printf("Vous avez entré %d\n", i);
@@ -85,16 +85,16 @@ int main() {
     char s[5] = "\0\0\0\0\0"; 
     printf("Veuillez entrer une chaîne : ");
     scanf("%5s", s);
-    printf("Vous avez entré %5s\n", s);
+    printf("Vous avez entré %5s\n", s); */
 
     char * c[4] = {"ENTER","NEW","POINT","FIRST"};
     char ** cp[4] = { c+3, c+2, c+1, c};
     char *** cpp = cp;
   
     printf("%s",**++cpp);
-    printf("%s ",*--*++cpp+3);
+    printf("%s",*--*++cpp+3);
     printf("%s",*cpp[-2]+3);
-    printf("%s\n",cpp[-1][-1]+1);
+    printf("%s\n",cpp[-1][-1]+1); 
 
     return EXIT_SUCCESS;      
 }
