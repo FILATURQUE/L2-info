@@ -13,7 +13,7 @@ class NORGate {
     void addOutputListener(ValueListener callback){
         cb.add(callback);   
     }
-
+    
     void removeOutputListener(ValueListener callback){
         cb.remove(callback);
     }
